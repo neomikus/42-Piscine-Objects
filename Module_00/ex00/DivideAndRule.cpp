@@ -1,17 +1,11 @@
-#include "DivideAndRule.hpp"
+#include "Bank.hpp"
 
 int main()
 {
-	Account accountA = Account();
-	accountA.id = 0;
-	accountA.value = 100;
+    Bank   bank(500);
+    bank.create_account(0, 100);
+    bank.create_account(1, 50);
 
-	Account accountB = Account();
-	accountB.id = 1;
-	accountB.value = 100;
-
-	Bank bank = Bank();
-	bank.liquidity = 999;
 	bank.clientAccounts.push_back(&accountA);
 	bank.clientAccounts.push_back(&accountB);
 

@@ -23,17 +23,24 @@ class Bank {
         };
 
         int _liquidity;
-        std::map<int, Account *> clientAccounts;
+        std::map<int, Account &> clientAccounts;
     public:
         Bank();
+        Bank(int liquidity);
         Bank(const Bank &other);
         Bank &operator=(const Bank &other);
         ~Bank();
 
+        void    setLiquidity(int liquidity) {
+            _liquidity = liquidity;
+        }
 
         int getLiquidity() const {
             return (_liquidity);
         }
 
-        const Account &operator[](const size_t idx);
+        void    create_account(int id, int value);
+
+        Account &operator[](const size_t idx);
+        const Account &operator[](const size_t idx) const;
 };
