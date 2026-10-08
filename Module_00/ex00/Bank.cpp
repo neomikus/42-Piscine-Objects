@@ -72,9 +72,8 @@ const Bank::Account &Bank::operator[](const size_t idx) const {
     {
         retval = &clientAccounts.at(idx);
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
+    catch(const std::out_of_range& e) {
+        std::cerr << "Account with that id not in bank!" << '\n';
     }
     return (*retval);
 }
